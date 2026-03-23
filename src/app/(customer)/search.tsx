@@ -55,9 +55,9 @@ export default function SearchScreen() {
             <TouchableOpacity
               key={r}
               onPress={() => setRadius(r)}
-              className={\`flex-1 py-3 mx-1 items-center rounded-xl border \${radius === r ? 'bg-[#FFBF00]/10 border-[#FFBF00]' : 'bg-white/5 border-white/10'}\`}
+              className={`flex-1 py-3 mx-1 items-center rounded-xl border ${radius === r ? 'bg-[#FFBF00]/10 border-[#FFBF00]' : 'bg-white/5 border-white/10'}`}
             >
-              <Text className={\`font-bold \${radius === r ? 'text-[#FFBF00]' : 'text-gray-400'}\`}>{r}km</Text>
+              <Text className={`font-bold ${radius === r ? 'text-[#FFBF00]' : 'text-gray-400'}`}>{r}km</Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -75,7 +75,7 @@ export default function SearchScreen() {
           <FlatList
             data={filteredSalons}
             keyExtractor={item => item.id}
-            renderItem={({ item }) => <SalonCard salon={item} />}
+            renderItem={({ item }) => <SalonCard salon={item as any} />}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{ paddingBottom: 100 }}
             ListEmptyComponent={() => (

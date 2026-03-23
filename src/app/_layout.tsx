@@ -27,7 +27,7 @@ function InitialLayout() {
     } else if (session && profile) {
       // If the user is signed in, redirect them based on role
       // But only if they are trying to access the auth group or root app load
-      if (inAuthGroup || segments.length === 0) {
+      if (inAuthGroup || !segments[0]) {
         if (profile.role === 'owner') {
           router.replace('/(owner)/dashboard');
         } else {

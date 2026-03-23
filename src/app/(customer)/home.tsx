@@ -121,8 +121,8 @@ export default function CustomerHome() {
         ) : (
           <BottomSheetFlatList
             data={salons}
-            keyExtractor={(i) => i.id}
-            renderItem={({ item }) => <SalonCard salon={item} />}
+            keyExtractor={(i: any) => i.id}
+            renderItem={({ item }: { item: any }) => <SalonCard salon={item as any} />}
             contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 60 }}
             showsVerticalScrollIndicator={false}
             ListEmptyComponent={() => (

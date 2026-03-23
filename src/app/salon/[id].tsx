@@ -28,10 +28,9 @@ export default function SalonDetailScreen() {
   }
 
   const openWhatsApp = () => {
-    // Attempt to grab salon phone or fallback to owner's phone
     const phone = salon.phone || (salon.profiles as any)?.phone;
     if (phone) {
-      Linking.openURL(\`whatsapp://send?phone=\${phone}\`).catch(() => {
+      Linking.openURL(`whatsapp://send?phone=${phone}`).catch(() => {
         alert('Make sure WhatsApp is installed on your device');
       });
     } else {
@@ -45,7 +44,7 @@ export default function SalonDetailScreen() {
         {/* Cover Photo */}
         <View className="w-full h-72 relative">
           <Image 
-            source={{ uri: salon.cover_image || 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop' }} 
+            source={{ uri: salon.cover_url || 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop' }} 
             className="w-full h-full opacity-80"
           />
           <View className="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent" />
@@ -75,7 +74,7 @@ export default function SalonDetailScreen() {
           <View className="flex-row space-x-3 mb-6">
             <View className="bg-[#FFBF00]/10 px-3 py-1.5 rounded-lg flex-row items-center border border-[#FFBF00]/20">
               <Ionicons name="star" size={16} color="#FFBF00" />
-              <Text className="text-[#FFBF00] font-bold ml-1">{salon.rating?.toFixed(1) || 'NEW'}</Text>
+              <Text className="text-[#FFBF00] font-bold ml-1">{salon.average_rating?.toFixed(1) || 'NEW'}</Text>
             </View>
             <TouchableOpacity 
               onPress={openWhatsApp}
@@ -92,9 +91,9 @@ export default function SalonDetailScreen() {
               <TouchableOpacity 
                 key={tab}
                 onPress={() => setActiveTab(tab)}
-                className={\`pb-3 px-4 \${activeTab === tab ? 'border-b-2 border-[#FFBF00]' : ''}\`}
+                className={`pb-3 px-4 ${activeTab === tab ? 'border-b-2 border-[#FFBF00]' : ''}`}
               >
-                <Text className={\`font-bold capitalize tracking-wide \${activeTab === tab ? 'text-[#FFBF00]' : 'text-gray-500'}\`}>
+                <Text className={`font-bold capitalize tracking-wide ${activeTab === tab ? 'text-[#FFBF00]' : 'text-gray-500'}`}>
                   {tab}
                 </Text>
               </TouchableOpacity>
@@ -112,7 +111,6 @@ export default function SalonDetailScreen() {
               <Text className="text-white font-bold text-xl mb-3">Working Hours</Text>
               <View className="bg-white/5 rounded-2xl p-4 border border-white/10">
                 <Text className="text-gray-400">Loading hours...</Text>
-                {/* We can fetch and populate working_hours table here later */}
               </View>
             </View>
           )}
@@ -137,6 +135,7 @@ export default function SalonDetailScreen() {
       {/* Sticky Bottom Actions */}
       <View className="absolute bottom-0 left-0 right-0 bg-[#131313]/90 pt-4 pb-8 px-6 border-t border-white/10">
         <TouchableOpacity 
+          onPress={() => router.push(`/book/${salon.id}`)}
           className="bg-[#FFBF00] py-4 rounded-2xl items-center shadow-lg"
         >
           <Text className="text-[#131313] font-bold text-[17px] tracking-wider">BOOK APPOINTMENT</Text>

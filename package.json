@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~55.0.6",
+    "@expo/vector-icons": "^15.1.1",
     "@gorhom/bottom-sheet": "^5.2.8",
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@supabase/supabase-js": "^2.100.0",
@@ -21,6 +22,7 @@
     "expo-linking": "~55.0.8",
     "expo-location": "~55.1.4",
     "expo-router": "~55.0.7",
+    "expo-splash-screen": "~55.0.12",
     "expo-status-bar": "~55.0.4",
     "lucide-react-native": "^1.0.1",
     "nativewind": "^4.2.3",
@@ -35,7 +37,7 @@
     "react-native-screens": "~4.23.0",
     "react-native-url-polyfill": "^3.0.0",
     "react-native-web": "^0.21.0",
-    "tailwindcss": "^4.0.0",
+    "tailwindcss": "^3.4.17",
     "zustand": "^5.0.12"
   },
   "devDependencies": {

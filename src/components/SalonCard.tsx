@@ -26,7 +26,7 @@ export function SalonCard({ salon }: SalonCardProps) {
       activeOpacity={0.8}
     >
       <Image 
-        source={{ uri: salon.cover_image || 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop' }}
+        source={{ uri: salon.cover_url || 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop' }}
         className="w-full h-40 bg-zinc-800"
         resizeMode="cover"
       />
@@ -38,7 +38,7 @@ export function SalonCard({ salon }: SalonCardProps) {
           </Text>
           <View className="flex-row items-center bg-[#FFBF00]/10 px-2 py-1 rounded-full border border-[#FFBF00]/30">
             <Ionicons name="star" size={14} color="#FFBF00" />
-            <Text className="text-[#FFBF00] font-bold text-xs ml-1">{salon.rating?.toFixed(1) || 'NEW'}</Text>
+            <Text className="text-[#FFBF00] font-bold text-xs ml-1">{salon.average_rating?.toFixed(1) || 'NEW'}</Text>
           </View>
         </View>
         

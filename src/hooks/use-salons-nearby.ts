@@ -16,8 +16,8 @@ export function useSalonsNearby(radiusKm: number = 20) {
       const { data, error } = await supabase
         .rpc('get_nearby_salons', {
           lat: latitude,
-          lng: longitude,
-          radius_km: radiusKm,
+          long: longitude,
+          radius_meters: radiusKm * 1000,
         });
 
       if (error) {
