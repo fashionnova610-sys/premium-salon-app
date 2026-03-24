@@ -1,6 +1,12 @@
 {
-  "buildCommand": "CI=0 npx expo export -p web -c --max-workers 1",
+  "buildCommand": "npm run build:web",
   "outputDirectory": "dist",
-  "devCommand": "npx expo start --web",
-  "framework": null
+  "framework": null,
+  "build": {
+    "env": {
+      "EXPO_NO_TELEMETRY": "1",
+      "EXPO_MAX_WORKERS": "1",
+      "NODE_ENV": "production"
+    }
+  }
 }
